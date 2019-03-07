@@ -1,10 +1,5 @@
 import {Component} from '@angular/core';
 
-interface Option {
-  label: string;
-  value: string;
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

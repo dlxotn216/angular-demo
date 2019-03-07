@@ -9,11 +9,14 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: 'app/tabs/tabs.module#TabsModule'
-  }
-  ,
+  },
   {
     path: 'board',
     loadChildren: 'app/board/board.module#BoardModule'
+  },
+  {
+    path: 'globalservice',
+    loadChildren: 'app/globalservice/globalservice.module#GlobalServiceModule'
   }
 ];
 
