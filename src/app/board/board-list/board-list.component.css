@@ -1,0 +1,14 @@
+/**
+ * @author Lee Tae Su
+ * @project angular-demo
+ * @version 1.0
+ * @since 2019-03-07
+ */
+.example-container {
+  height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}

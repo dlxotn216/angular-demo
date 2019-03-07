@@ -1,10 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-form-field>
-  <input type="text" placeholder="Input User ID" matInput [formControl]="myControl" [matAutocomplete]="auto" (click)="_reloadUserOptions()">
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.value">
-      {{ option.label }}
-    </mat-option>
-  </mat-autocomplete>
-</mat-form-field>
-<router-outlet></router-outlet>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side"
+              [opened]="sideNavIsOpened"
+              (openedChange)="toggleSideNav($event)">
+    <nav>
+      <mat-list>
+        <mat-list-item>
+          <h4 mat-line><a routerLink="/">Home</a></h4>
+        </mat-list-item>
+
+        <h3 mat-subheader>Autocomplete</h3>
+        <mat-list-item>
+          <h4 mat-line><a routerLink="/autocomplete-forms">With mocks</a></h4>
+          <p mat-line> Mock를 이용한 autocomplete </p>
+        </mat-list-item>
+        <mat-list-item>
+          <h4 mat-line><a routerLink="/autocomplete-forms/api">With API</a></h4>
+          <p mat-line> API를 이용한 autocomplete </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <h3 mat-subheader>Tabs</h3>
+        <mat-list-item>
+          <h4 mat-line><a routerLink="/tabs">No Animation Tab</a></h4>
+          <p mat-line> Animation이 없는 Tab </p>
+        </mat-list-item>
+
+        <h3 mat-subheader>Board</h3>
+        <mat-list-item>
+          <h4 mat-line><a routerLink="/board">Board</a></h4>
+          <p mat-line> 게시판 예제 </p>
+        </mat-list-item>
+      </mat-list>
+    </nav>
+  </mat-drawer>
+  <button type="button" class="toggle-sidenav" mat-button (click)="drawer.toggle()">
+    {{ getToggleSideNavText() }}
+  </button>
+
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>
