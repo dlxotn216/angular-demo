@@ -38,7 +38,7 @@ export class WithApiComponent implements OnInit {
 
   private _filter(value: string): Observable<User[]> {
     if (!value) {
-      return new Observable();
+      value = '';
     }
 
     const filterValue = value.toLowerCase();
