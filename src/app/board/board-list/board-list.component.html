@@ -1,29 +1,36 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="example-container mat-elevation-z8">
+  <div style="text-align: right">
+    <button mat-raised-button (click)="onAdd($event)">Add</button>
+  </div>
+
   <table mat-table [dataSource]="dataSource">
-
-    <!-- Position Column -->
     <ng-container matColumnDef="no">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+      <th mat-header-cell *matHeaderCellDef> No.</th>
+      <td mat-cell *matCellDef="let element"> {{element.no}}</td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Title </th>
-      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      <th mat-header-cell *matHeaderCellDef> Title</th>
+      <td mat-cell *matCellDef="let element"> {{element.title}}</td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="createdBy">
-      <th mat-header-cell *matHeaderCellDef> Created by </th>
-      <td mat-cell *matCellDef="let element"> {{element.createdBy}} </td>
+      <th mat-header-cell *matHeaderCellDef> Created by</th>
+      <td mat-cell *matCellDef="let element"> {{element.createdBy}}</td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="createdDateTime">
-      <th mat-header-cell *matHeaderCellDef> Datetime </th>
-      <td mat-cell *matCellDef="let element"> {{element.createdDateTime}} </td>
+      <th mat-header-cell *matHeaderCellDef> Datetime</th>
+      <td mat-cell *matCellDef="let element"> {{element.createdDateTime}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="button">
+      <th mat-header-cell *matHeaderCellDef> Button</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button (click)="onEdit($event, row)">Edit</button>
+        <button mat-raised-button (click)="onDelete($event, row)">Delete</button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

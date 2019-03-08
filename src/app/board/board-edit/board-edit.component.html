@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Board Edit</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content style="height: 230px; padding-top: 20px">
+  <form class="board-edit-form">
+    <mat-form-field class="form-full-width">
+      <input matInput placeholder="Input title" [formControl]="titleFormControl">
+    </mat-form-field>
+
+    <mat-form-field class="form-full-width">
+      <textarea matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="2"
+                cdkAutosizeMaxRows="7"
+                placeholder="Input content" [formControl]="contentFormControl"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onSave()">Save</button>
+  <button mat-raised-button (click)="onClose()">Close</button>
+</div>
