@@ -5,6 +5,7 @@
  * @since 2019-03-07
  */
 interface BoardDto {
+  boardKey: number;
   no: number;
   title: string;
   content?: string;

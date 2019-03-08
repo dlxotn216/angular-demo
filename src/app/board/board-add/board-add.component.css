@@ -1,0 +1,16 @@
+/**
+ * @author Lee Tae Su
+ * @project angular-demo
+ * @version 1.0
+ * @since 2019-03-07
+ */
+
+.board-edit-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.form-full-width {
+  width: 100%;
+}

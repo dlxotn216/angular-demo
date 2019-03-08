@@ -26,8 +26,19 @@ export class BoardService {
     }
   }
 
+  public addBoard(board: BoardDto): Observable<any> {
+    return this.http.post<any>(`http://localhost:8080/boards`, board);
+  }
   public getBoard(boardKey: number): Observable<any> {
     return this.http.get<any>(`http://localhost:8080/boards/${boardKey}`);
+  }
+
+  public updateBoard(board: BoardDto): Observable<any> {
+    return this.http.put<any>(`http://localhost:8080/boards/${board.boardKey}`, board);
+  }
+
+  public deleteBoard(boardKey: number): Observable<any> {
+    return this.http.delete<any>(`http://localhost:8080/boards/${boardKey}`);
   }
 
 }
