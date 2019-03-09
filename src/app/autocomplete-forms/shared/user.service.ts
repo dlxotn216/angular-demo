@@ -20,11 +20,10 @@ export class UserService {
         return `${key}=${param[key]}`;
       }).join('&');
 
-    console.log(queryString);
     if (queryString) {
-      return this.http.get<any>('http://localhost:8080/users?' + queryString);
+      return this.http.get<any>('http://localhost:8080/users/matches?' + queryString);
     } else {
-      return this.http.get<any>('http://localhost:8080/users');
+      return this.http.get<any>('http://localhost:8080/users/matches');
     }
   }
 }
