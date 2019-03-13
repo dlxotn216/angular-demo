@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'globalservice',
     loadChildren: 'app/globalservice/globalservice.module#GlobalServiceModule'
+  },
+  {
+    path: 'i18n',
+    loadChildren: 'app/i18n-example/i18n-example.module#I18nExampleModule'
   }
 ];
 

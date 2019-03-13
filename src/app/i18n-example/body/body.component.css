@@ -1,0 +1,18 @@
+#body {
+  border: solid 1px black;
+  padding: 10px;
+}
+
+#router-wrap {
+  overflow: hidden;
+}
+
+a {
+  padding: 20px;
+  background-color: darkcyan;
+  float: left;
+}
+
+a:hover {
+  opacity: 0.8;
+}
