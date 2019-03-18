@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {LabelService} from '../shared/label.service';
 import {LocaleService} from '../shared/locale.service';
+import {Subscription} from 'rxjs/index';
 /**
  * Created by taesu on 2019-03-07.
  */
@@ -10,21 +11,25 @@ import {LocaleService} from '../shared/locale.service';
   selector: 'app-child',
   templateUrl: './child.component.html'
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit, OnDestroy {
 
   private locale: string;
+  private subscriptions: Subscription[] = [];
 
   constructor(private labelService: LabelService,
               private localeService: LocaleService) {
   }
 
   ngOnInit(): void {
-    this.localeService.getLocalePublisher().subscribe(locale => {
-      this.locale = locale;
-    });
+    this.locale = this.localeService.getLocale();
 
-    this.localeService.sync();
+    this.subscriptions.push(this.localeService.getLocalePublisher().subscribe(locale => {
+      console.log('check view1 subscribe');
+      this.locale = locale;
+    }));
   }
 
-
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
 }

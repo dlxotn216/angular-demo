@@ -11,7 +11,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable({providedIn: 'root'})
 export class LocaleService {
-  private locale = 'en';
+  private locale;
   private localePublisher: Subject<string> = new Subject();
 
   constructor(private http: HttpClient) {
@@ -19,22 +19,24 @@ export class LocaleService {
 
   public publishLocale(locale: string) {
     if (!locale) {
-      locale = 'en';
+      return;
     }
 
     if (this.locale === locale) {
       return;
     }
 
-    this.locale = locale;
-    this.localePublisher.next(this.locale);
-  }
+    console.log('publish local', locale);
 
-  public sync() {
+    this.locale = locale;
     this.localePublisher.next(this.locale);
   }
 
   public getLocalePublisher(): Observable<string> {
     return this.localePublisher;
+  }
+
+  public getLocale() {
+    return this.locale;
   }
 }

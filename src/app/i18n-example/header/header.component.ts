@@ -20,11 +20,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.localeService.publishLocale(null);
-
     this.localeDataService.getLocales()
       .subscribe(res => {
         this.locales = res.result;
+        this.localeService.publishLocale(this.locales[0].value);
       });
   }
 
